@@ -34,7 +34,7 @@ public class DataInitializer {
 	private void load() throws IOException {
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader("/Users/devesh/Downloads/ipl26a822d/matches.csv"));
+			br = new BufferedReader(new FileReader("src/main/resources/matches.csv"));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -59,7 +59,10 @@ public class DataInitializer {
 			match.setWinByRuns(Integer.parseInt(arr[11]));
 			match.setWinByWickets(Integer.parseInt(arr[12]));
 			match.setPlayerOfMatch(arr[13]);
-			match.setVenue(arr[14]);
+			String venue = arr[14];
+			if(venue.startsWith("\""))
+				venue = venue.substring(1);
+			match.setVenue(venue);
 			match.setUmpire1(arr[15]);
 			match.setUmpire2(arr[16]);
 			try {

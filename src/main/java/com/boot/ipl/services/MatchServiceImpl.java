@@ -1,5 +1,7 @@
 package com.boot.ipl.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,12 @@ public class MatchServiceImpl implements MatchService{
 	
 	public Page<Match> getAll(Pageable pageable){
 		return repo.findAll(pageable);
+	}
+
+	
+	public Page<Match> getBySeasons(List<String> season, Pageable pageable) {
+		
+		return repo.findBySeasonIn(season, pageable);
 	}
 	
 }
