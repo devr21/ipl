@@ -1,5 +1,14 @@
-spring.datasource.url=jdbc:mysql://localhost:3306/ipl
-spring.datasource.username=root
-spring.datasource.password=Daev@123
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
-spring.jpa.hibernate.ddl-auto=update
+spring:
+ datasource:
+  url: jdbc:mysql://localhost:3306/indian_premier_league
+  username: dbadmin
+  password: dbadmin,
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+spring.jpa.hibernate.ddl-auto: update
+security:
+  oauth2:
+    resource:
+      jwt: 
+        keyUri: http://localhost:8080/auth/oauth/token_key
+server:
+  port: 9090        

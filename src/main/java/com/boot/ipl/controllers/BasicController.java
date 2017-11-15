@@ -26,11 +26,12 @@ public class BasicController {
 		value = params.get("size");
 		int size = isValid(value)?Integer.parseInt(value):RequestConstants.MATCH.getSize();
 		String sort = params.get("sort");
+		logger.info("sort value: "+sort);
 		Pageable p = null;
 		if(sort != null) {
 			String dir = null;
 			dir = isValid(params.get("sort.dir"))?params.get("sort.dir"):"asc";
-			
+			logger.info("sort direction: "+dir);
 			Sort s = null;
 			try{
 				s = new Sort(Direction.valueOf(dir.toUpperCase()),sort);
